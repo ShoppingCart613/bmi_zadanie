@@ -22,7 +22,13 @@ public class MainActivity extends AppCompatActivity {
             double wzrost = Double.parseDouble(editText2.getText().toString());
             double bmi = waga/((wzrost/100)*(wzrost/100));
             TextView wynik = findViewById(R.id.textView3);
-            wynik.setText(Double.toString(bmi));
+            if(bmi >= 18.5 && bmi <= 25){
+                wynik.setText(bmi + " (waga normalna)");
+            }else if(bmi < 18.5){
+                wynik.setText(bmi + " (wychodzenie)");
+            }else if(bmi > 25){
+                wynik.setText(bmi + " (nadwaga)");
+            }
 
         });
     }
